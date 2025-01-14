@@ -1,5 +1,8 @@
 import utils as utl
 
+# Define constants for reusable paths
+DEFAULT_BASELINE = "data/eng_baseline.json"
+
 def cipher_solver(cipherpath: str = None, baseline_path: str = None) -> None:
     """ Decrypts a Caesar cipher with unknown key using letter frequency analysis. """
     # Ensure a baseline path
@@ -12,10 +15,15 @@ def cipher_solver(cipherpath: str = None, baseline_path: str = None) -> None:
             )
             baseline_path = utl.get_path()
         else:
-            baseline_path = 'data/eng_baseline.json'
+            baseline_path = DEFAULT_BASELINE
     
     # Read the saved JSON file containing the letter frequencies.
-    baseline = utl.load_baseline(baseline_path) 
+    try:
+        baseline = utl.load_baseline(baseline_path) 
+    except Exception as e:
+        print(f"Error occured when loading the baseline file: {e}")
+        return
+
 
     # Ensure a ciphertext path
     if not cipherpath:
@@ -36,11 +44,14 @@ def cipher_solver(cipherpath: str = None, baseline_path: str = None) -> None:
 
     print(f"Key determined: {key}")
 
-    # Decrypt using key
-    try:
-        decrypt(cipherpath, key)
-    except ValueError as e:
-        print(f"Error during decryption: {e}")
+    if key != 0:
+        # Decrypt using key
+        try:
+            decrypt(cipherpath, key)
+        except ValueError as e:
+            print(f"Error during decryption: {e}")
+    else: 
+        print("The cipher is already decrypted")
 
 
 def decrypt(cipherpath: str = None, key: int = None) -> None:

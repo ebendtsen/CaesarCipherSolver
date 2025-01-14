@@ -11,7 +11,11 @@ def get_baseline() -> None:
     language = input('What language is the text: ').strip().lower()
 
     # Calculate the frequency of each letter in sample
-    baseline = utl.analyze_frequency(path)
+    try:
+        baseline = utl.analyze_frequency(path)
+    except ValueError as e:
+        print(f"Error occured when loading the baseline: {e}")
+        return
 
     # Save the result to a JSON file
     try:
