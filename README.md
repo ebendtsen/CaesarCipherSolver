@@ -1,6 +1,6 @@
 # Caesar Cipher Solver
 
-This project provides tools to encrypt, decrypt, and solve Caesar ciphers. It includes functions for frequency analysis, baseline creation for decrypting, and visualization of letter frequencies. 
+This project provides tools to encrypt, and decrypt Caesar ciphers. It utilizes frequency analysis to decrypt ciphers where the key is not known or decrypts using a known key. It also has functionality to create new baselines for decrypting and visualisation of baseline letter frequencies.
 ## Features
 - **Encrypt Text:** Encrypt plain text using a Caesar cipher with a specified key.
 - **Decrypt Text:** Decrypt cipher text using a known key or solve the key using letter frequency analysis.
@@ -20,13 +20,13 @@ This project provides tools to encrypt, decrypt, and solve Caesar ciphers. It in
 │	│	├── plaintext1.txt
 │	│	├── plaintext2.txt
 │	│	└── plaintext3.txt
-│	└── eng_baseline.json (default baseline 
-│       for English)
+│	├── eng_baseline.json (default baseline for English)
+│       └── theGreatGatsby_Gutenberg.txt
 └── README.md (this file)
 ```
 ### Files
-- **main.py:** The main script to run the Caesar Cipher program.
-- **baseline_generator.py:** Contains functions to generate and plot letter frequencies.
+- **main.py:** The main script to run the Caesar Cipher programme.
+- **baseline_generator.py:** Contains functions to generate and plot letter frequencies based on a text sample.
 - **cipher_solver.py:** Contains functions to encrypt, decrypt, and solve Caesar ciphers.
 - **utils.py:** Utility functions for cleaning text, frequency analysis, and file handling.
 ## Requirements
@@ -64,9 +64,9 @@ Use these samples to quickly test and understand how the program works.
 1. Choose the `Encrypt (e)` option.
 2. Provide the file path for the text to encrypt (e.g., `data\samples\plaintext1.txt`).
 3. Provide the encryption key (1-26).
-4. The encrypted text will be saved to `cipheroutput.txt`.
+5. The encrypted text will be saved to `cipheroutput.txt`.
 
-### Decrypting Text with Known Key
+### Decrypting Text with a Known Key
 1. Choose the `Decrypt (d)` option.
 2. Choose `Use key (k)` option.
 3. Provide the file path for the cipher (e.g., `data\samples\cipher1.txt).
@@ -78,8 +78,8 @@ Use these samples to quickly test and understand how the program works.
 2. Choose `Solve key (s)` option.
 3. Provide the file path for the cipher. (e.g., `data/sample_cipher.txt`).
 4. Provide the file path for the baseline (optional).
-	- If you choose `no` then the provided baseline will be used.
-5. The program will determine the key and decrypt the text.
+	- If you choose `no` then the provided baseline for English, `eng_baseline.json`, will be used.
+5. The programme will determine the key and decrypt the text.
 6. The decrypted text will be saved to `plainoutput.txt`.
 
 ### Creating a Baseline
@@ -93,7 +93,9 @@ To decrypt a Caesar cipher the programme matches letter frequencies from a basel
 ### Plotting a Baseline
 After creating a new baseline, you can optionally plot the letter frequency data:
 
-1. Provide the file path for the baseline JSON file or use the generated baseline.
+1. When creating a baseline you will be prompted wether you wish to plot the baseline.
+2. To plot the baseline, write `y`as the option.
+3. To skip plotting the baseline, write `n`.
 
 ## What I learned
 
