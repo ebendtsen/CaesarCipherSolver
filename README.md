@@ -99,7 +99,7 @@ After creating a new baseline, you can optionally plot the letter frequency data
 
 ## What I learned
 
-This project taught me a lot about decryption and frequency analysis. I also got to try `matplotlib` and `os` libraries for the first time and learned many new coding tricks I had not used before (e.g., some new functions like `ord()` and how to make my code more readable through type hinting). I also ran into issues with encoding when attempting to decrypt and encrypt files as well as reading the Great Gatsby sample. These issues were quickly fixed by explicitly stating which type of decoding/encoding to use (e.g., utf-8-sig for handling UTF-8 BOM encoding).
+This project taught me a lot about decryption and frequency analysis. I also got to try `matplotlib` for the first time and learned many new coding tricks I had not used before (e.g., some new functions like `ord()` and how to make my code more readable through type hinting). I also ran into issues with encoding when attempting to decrypt and encrypt files as well as reading the Great Gatsby sample. These issues were quickly fixed by explicitly stating which type of decoding/encoding to use (e.g., utf-8-sig for handling UTF-8 BOM encoding).
 
 In the future, this project could be improved by using a more sophisticated decryption method. The current method used will only reliably work on a sample that is a little longer; shorter samples will not decrypt correctly.
 
